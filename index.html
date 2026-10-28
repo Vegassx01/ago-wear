@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ago Wear — Maroc | Vêtements Premium Homme</title>
+<script>try{var _t=new URLSearchParams(location.search).get('theme');if(_t!=='dark'&&(_t==='light'||localStorage.getItem('ago-theme')==='light'))document.documentElement.classList.add('light')}catch(e){}</script>
+<meta name="description" content="Ago Wear — Des vêtements modernes pour un style unique. Qualité, confort et élégance au quotidien. Livraison partout au Maroc.">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & TOKENS ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0c; --bg2:#0e0e11; --card:#131316; --card2:#17171b;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.15);
+  --gold:#d9b45b; --gold2:#f2d68d; --goldsoft:rgba(217,180,91,.14);
+  --txt:#f5f2ea; --muted:#a09b90; --dark:#060607;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost','Segoe UI',system-ui,sans-serif;
+  --radius:14px; --tr:.35s cubic-bezier(.22,.61,.36,1);
+  --wa:#25d366;
+}
+html{scroll-behavior:smooth}
+.cats,.prods,.popular,.banner,.list-sec,.news,footer,.services{scroll-margin-top:88px}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .45s ease,color .45s ease}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--gold);color:#111}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a0a0c}
+::-webkit-scrollbar-thumb{background:#2a2a30;border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section{scroll-margin-top:96px}
+
+.wrap{width:min(1280px,92%);margin-inline:auto}
+.kicker{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:38px}
+.section-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:.01em}
+.section-head .dash{display:inline-block;width:64px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-inline-start:18px;vertical-align:middle;border-radius:2px}
+.link-more{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px;white-space:nowrap;transition:gap var(--tr),color var(--tr)}
+.link-more:hover{color:var(--gold2);gap:16px}
+.link-more svg{width:16px;height:16px}
+.sub{color:var(--muted);font-size:.95rem;margin-top:6px;font-weight:300}
+
+/* ============ SCROLL PROGRESS ============ */
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#b8923e,var(--gold2));z-index:1000;box-shadow:0 0 12px rgba(217,180,91,.55)}
+
+/* ============ TOPBAR ============ */
+.topbar{background:linear-gradient(90deg,#0c0c0e,#16120a,#0c0c0e);border-bottom:1px solid var(--line);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#cfc9ba;transition:background .45s ease,border-color .45s ease}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:14px;padding:9px 0;text-align:center;flex-wrap:wrap}
+.topbar .sep{color:var(--gold);font-weight:600}
+.topbar svg{width:14px;height:14px;vertical-align:-2px;color:var(--gold)}
+
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:900;background:rgba(8,8,10,.42);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);transition:background var(--tr),box-shadow var(--tr),backdrop-filter var(--tr)}
+.site-header.scrolled{background:rgba(9,9,11,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 34px rgba(0,0,0,.5);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:28px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .emblem{width:48px;height:48px;border-radius:16%;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.5),0 0 18px rgba(217,180,91,.35),0 0 44px rgba(217,180,91,.12);flex:none;transition:box-shadow var(--tr),transform var(--tr)}
+.brand:hover .emblem{transform:translateY(-1px);box-shadow:0 8px 26px rgba(0,0,0,.55),0 0 26px rgba(217,180,91,.5),0 0 60px rgba(217,180,91,.18)}
+.brand .emblem img{width:100%;height:100%;object-fit:cover}
+.brand .name{font-family:var(--serif);font-weight:800;font-size:1.65rem;letter-spacing:.02em;background:linear-gradient(100deg,#fff 30%,var(--gold2) 75%);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.brand .tag{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.menu{display:flex;gap:6px;margin-inline:auto}
+.menu a{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--txt);padding:10px 16px;border-radius:8px;position:relative;transition:color var(--tr)}
+.menu a::after{content:'';position:absolute;left:50%;right:50%;bottom:4px;height:2px;background:var(--gold);border-radius:2px;transition:left var(--tr),right var(--tr)}
+.menu a:hover{color:#fff}
+.menu a:hover::after{left:16px;right:16px}
+.menu a.active{color:var(--gold2)}
+.menu a.active::after{left:16px;right:16px}
+.nav-icons{display:flex;align-items:center;gap:4px;margin-left:auto}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;color:var(--txt);position:relative;transition:color var(--tr),background var(--tr),transform var(--tr)}
+.icon-btn:hover{color:var(--gold2);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.icon-btn svg{width:19px;height:19px}
+.cart-badge{position:absolute;top:2px;right:0;background:var(--gold);color:#141414;font-size:.62rem;font-weight:600;min-width:17px;height:17px;border-radius:99px;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 2px #0a0a0c;transition:transform .2s}
+.cart-badge.bump{transform:scale(1.5)}
+.burger{display:none}
+.mobile-nav{position:fixed;inset:0;z-index:950;background:rgba(6,6,8,.97);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:var(--serif);font-size:2rem;padding:10px 26px;color:var(--txt);transition:color var(--tr)}
+.mobile-nav a:hover{color:var(--gold)}
+.mobile-nav .close-x{position:absolute;top:26px;right:26px;color:var(--muted)}
+.mobile-nav .close-x:hover{color:var(--gold)}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:calc(100vh - 115px);min-height:calc(100svh - 115px);display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.hero-slides{position:absolute;inset:0;z-index:-2}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 30%;opacity:0;transform:scale(1.02);filter:saturate(1.06) brightness(.8);transition:opacity 1.5s ease,filter 1.5s ease}
+.hero-slide.zoom{animation:kb 16s ease-out forwards}
+.hero-slide.show{opacity:1}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.hero-slide.fit{background-size:contain;background-position:center;background-repeat:no-repeat;animation:none!important;transform:none!important;transition:opacity 1.1s ease}
+.hero-veil{position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(7,7,9,.88) 0%,rgba(7,7,9,.62) 36%,rgba(7,7,9,.2) 68%,rgba(7,7,9,.4) 100%),
+  linear-gradient(0deg,var(--bg) 0%,transparent 26%),
+  linear-gradient(180deg,var(--bg) 0%,transparent 20%)}
+.hero .wrap{padding:40px 0 100px}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(3.2rem,9vw,7rem);line-height:1;letter-spacing:.01em;margin-bottom:22px}
+.hero h1 .w1{color:#fdfcf8;text-shadow:0 10px 60px rgba(0,0,0,.65)}
+.hero h1 .w2{color:var(--gold);margin-left:.14em;text-shadow:0 10px 60px rgba(0,0,0,.65)}
+.hero .lead{max-width:424px;font-size:clamp(1rem,1.5vw,1.15rem);color:#d9d4c7;margin-bottom:34px}
+.hero .lead b{color:var(--gold2);font-weight:400}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:42px}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(100deg,#c9a44b,#f0d491 55%,#c9a44b);color:#161104;font-weight:600;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;padding:19px 36px;border-radius:6px;position:relative;overflow:hidden;transition:transform var(--tr),box-shadow var(--tr)}
+.btn-gold::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-22deg);animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-70%}100%{left:160%}}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(217,180,91,.35);filter:brightness(1.06)}
+.btn-gold svg{width:17px;height:17px;transition:transform var(--tr)}
+.btn-gold:hover svg{transform:translateX(5px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--txt);padding:18px 32px;border:1px solid var(--line2);border-radius:6px;transition:border-color var(--tr),color var(--tr),background var(--tr),transform var(--tr)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2);background:rgba(217,180,91,.07);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:38px;flex-wrap:wrap;color:#bdb7aa;font-size:.85rem}
+.hero-stats div b{display:block;font-family:var(--serif);font-size:1.5rem;color:#fff;font-weight:700}
+.hero-stats div b i{color:var(--gold);font-style:normal}
+.hero-stats .stars{color:#f2d68d;letter-spacing:2px}
+.hero-stats .stars svg{width:97px;height:17px;display:inline-block;vertical-align:-2px}
+.hero-ui{position:absolute;bottom:34px;left:0;right:0;z-index:5}
+.hero-ui .wrap{display:flex;align-items:center;justify-content:center;padding:0}
+.hero-dots{display:flex;gap:12px}
+.hero-dots button{width:30px;height:6px;border-radius:99px;background:rgba(255,255,255,.28);transition:background var(--tr),width var(--tr);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.hero-dots button.active{width:52px;background:var(--gold)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(10,10,12,.4);border:1px solid var(--line2);backdrop-filter:blur(6px);transition:background var(--tr),color var(--tr),border-color var(--tr)}
+.hero-arrow:hover{background:var(--gold);color:#141414;border-color:var(--gold)}
+.hero-arrow svg{width:20px;height:20px}
+.hero-arrow.prev{left:26px}.hero-arrow.next{right:26px}
+
+/* ============ MARQUEE ============ */
+.marquee{background:linear-gradient(90deg,#12100b,#1c160a,#12100b);border-block:1px solid rgba(217,180,91,.28);overflow:hidden;padding:15px 0;transition:background .45s ease,border-color .45s ease}
+.marquee .track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.marquee .mq{display:flex;align-items:center;flex:none}
+.marquee .mq span{font-size:.74rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold2);white-space:nowrap}
+.marquee .mq span::after{content:'';display:inline-block;width:10px;height:10px;flex:none;margin:0 34px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9b45b' d='M12 1.5l2.8 7.7 7.7 2.8-7.7 2.8-2.8 7.7-2.8-7.7-7.7-2.8 7.7-2.8z'/%3E%3C/svg%3E") center/contain no-repeat}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============ SERVICES ============ */
+.services{padding:56px 0;background:var(--bg2);border-bottom:1px solid var(--line);transition:background .45s ease,border-color .45s ease}
+.services .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.service{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(150deg,rgba(255,255,255,.025),transparent);transition:transform var(--tr),border-color var(--tr),background var(--tr)}
+.service:hover{transform:translateY(-5px);border-color:rgba(217,180,91,.4);background:linear-gradient(150deg,rgba(217,180,91,.06),transparent)}
+.service .ic{width:52px;height:52px;flex:none;border-radius:13px;display:grid;place-items:center;background:var(--goldsoft);color:var(--gold);border:1px solid rgba(217,180,91,.3)}
+.service .ic svg{width:24px;height:24px}
+.service h3{font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:4px}
+.service p{color:var(--muted);font-size:.86rem}
+
+/* ============ CATEGORIES ============ */
+.cats{padding:86px 0;position:relative;overflow:hidden}
+.cats::before{content:'';position:absolute;top:-120px;right:-140px;width:640px;height:640px;pointer-events:none;background:radial-gradient(circle,rgba(217,180,91,.07),transparent 70%)}
+.cats .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.cat-card{position:relative;height:380px;border-radius:var(--radius);overflow:hidden;isolation:isolate;transition:transform var(--tr),box-shadow var(--tr)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1),filter .8s}
+.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,7,.88) 4%,rgba(5,5,7,.18) 45%,transparent 75%);transition:opacity var(--tr)}
+.cat-card:hover img{transform:scale(1.09);filter:brightness(1.05)}
+.cat-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.cat-body{position:absolute;inset:auto 0 0 0;z-index:2;padding:22px}
+.cat-body h3{font-size:1rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:14px}
+.cat-body .voir{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;padding:11px 18px;border:1px solid rgba(255,255,255,.35);border-radius:4px;color:#fff;background:rgba(8,8,10,.4);backdrop-filter:blur(4px);transition:background var(--tr),border-color var(--tr),color var(--tr)}
+.cat-card:hover .voir{background:var(--gold);border-color:var(--gold);color:#141414}
+.cat-body .voir svg{width:14px;height:14px}
+
+/* ============ PRODUCTS (NOUVEAUTÉS) ============ */
+.prods{padding:30px 0 90px;position:relative;overflow:hidden}
+.prods::before{content:'';position:absolute;top:40px;left:-160px;width:560px;height:560px;pointer-events:none;background:radial-gradient(circle,rgba(217,180,91,.05),transparent 70%)}
+.prods .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.prod-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);position:relative}
+.prod-card:hover{transform:translateY(-6px);border-color:rgba(217,180,91,.55);box-shadow:0 24px 50px rgba(0,0,0,.5),0 0 34px rgba(217,180,91,.08)}
+.prod-media{position:relative;aspect-ratio:3/4;overflow:hidden;background:#e9e7e2;cursor:pointer}
+.prod-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+.prod-card:hover .prod-media img{transform:scale(1.07)}
+.flag{position:absolute;top:12px;left:12px;background:var(--gold);color:#141401;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:99px}
+.heart{position:absolute;top:11px;right:11px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.85);color:#26261f;transition:transform .2s,background var(--tr),color var(--tr)}
+.heart:hover{transform:scale(1.12)}
+.heart svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+.heart.on{background:#fff;color:#e0452c}
+.heart.on svg{fill:#e0452c}
+.prod-body{padding:16px 16px 18px}
+.prod-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.prod-body h3{font-size:.92rem;font-weight:400;letter-spacing:.04em}
+.color-dots{display:flex;gap:5px;flex:none}
+.color-dots i{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:block}
+.prod-price{display:flex;align-items:baseline;gap:9px;margin-top:8px}
+.prod-price .nx{font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--gold2)}
+.prod-price .ox{font-size:.8rem;color:var(--muted);text-decoration:line-through}
+.prod-add{margin-top:13px;width:100%;padding:11px;border:1px solid var(--line2);border-radius:6px;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--txt);background:rgba(255,255,255,.03);transition:background var(--tr),color var(--tr),border-color var(--tr)}
+.prod-card:hover .prod-add{background:var(--gold);border-color:var(--gold);color:#141414}
+.prod-add:hover{background:var(--gold2);border-color:var(--gold2)}
+
+/* ============ MOST POPULAR ============ */
+.popular{padding:90px 0;background:var(--bg2);border-block:1px solid var(--line)}
+.popular .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pop-card{position:relative;border-radius:var(--radius);overflow:hidden;isolation:isolate;background:var(--card);border:1px solid var(--line);transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr)}
+.pop-card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 40px rgba(217,180,91,.1);border-color:rgba(217,180,91,.6)}
+.pop-media{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer}
+.pop-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1)}
+.pop-card:hover .pop-media img{transform:scale(1.08)}
+.pop-media::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,10,.85) 0%,transparent 45%);opacity:.85}
+.rank{position:absolute;top:14px;left:18px;z-index:3;font-family:var(--serif);font-style:italic;font-weight:700;font-size:3rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(242,214,141,.75);filter:drop-shadow(0 3px 14px rgba(0,0,0,.65))}
+.pop-badge{position:absolute;top:16px;right:16px;z-index:3;background:var(--gold);color:#141401;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border-radius:99px;display:flex;gap:6px;align-items:center}
+.pop-info{position:absolute;inset:auto 0 0 0;z-index:3;padding:20px}
+.pop-info h3{font-size:1.05rem;font-weight:400;letter-spacing:.03em;margin-bottom:4px}
+.pop-info .cat{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pop-price{display:flex;align-items:baseline;justify-content:space-between}
+.pop-price .nx{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--gold2)}
+.pop-price .ox{font-size:.78rem;color:var(--muted);text-decoration:line-through}
+.pop-add{margin-top:14px;width:100%;padding:12px;border:1px solid var(--line2);border-radius:6px;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--txt);transition:background var(--tr),color var(--tr),border-color var(--tr)}
+.pop-card:hover .pop-add{background:var(--gold);color:#141414;border-color:var(--gold)}
+
+/* ============ LOOKBOOK BANNER ============ */
+.banner{position:relative;padding:110px 0;text-align:center;isolation:isolate;overflow:hidden}
+.banner .bg{position:absolute;inset:0;z-index:-2;background:url('https://images.pexels.com/photos/6626361/pexels-photo-6626361.jpeg?auto=compress&cs=tinysrgb&w=1800&h=1000&fit=crop') center 25%/cover no-repeat;filter:blur(3px) brightness(.5) saturate(.95);transform:scale(1.04)}
+.banner::after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(10,10,12,.25),rgba(8,8,10,.82) 80%)}
+.banner .kicker{margin-bottom:16px}
+.banner h2{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px}
+.banner h2 i{color:var(--gold)}
+.banner p{max-width:520px;margin:0 auto 36px;color:#cfc9bc}
+
+/* ============ FULL LIST ============ */
+.list-sec{padding:90px 0}
+.list-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.chip{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:10px 20px;border:1px solid var(--line2);border-radius:99px;transition:all var(--tr)}
+.chip:hover{border-color:var(--gold);color:var(--gold2)}
+.chip.on{background:var(--gold);color:#141414;border-color:var(--gold);font-weight:500}
+.list-rows{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.list-row{display:grid;grid-template-columns:88px 1.4fr 1fr auto auto auto;align-items:center;gap:22px;padding:14px 22px;border-bottom:1px solid var(--line);transition:background var(--tr);cursor:pointer}
+.list-row:last-child{border-bottom:none}
+.list-row:hover{background:rgba(217,180,91,.045)}
+.list-row .thumb{width:88px;height:88px;border-radius:10px;overflow:hidden;background:#e9e7e2}
+.list-row .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.list-row:hover .thumb img{transform:scale(1.12)}
+.list-row h4{font-size:1rem;font-weight:400}
+.list-row .cat{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.list-row .meta{display:flex;align-items:center;gap:16px}
+.list-row .color-dots i{width:12px;height:12px}
+.list-row .sizes{display:flex;gap:6px}
+.list-row .sizes i{font-style:normal;font-size:.68rem;color:var(--muted);border:1px solid var(--line2);border-radius:4px;padding:3px 7px}
+.list-row .price{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--gold2);min-width:88px;text-align:right}
+.list-add{padding:11px 22px;border:1px solid var(--line2);border-radius:6px;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--txt);transition:all var(--tr)}
+.list-add:hover{background:var(--gold);color:#141414;border-color:var(--gold)}
+.list-row.pop{animation:rowPop .5s cubic-bezier(.22,.61,.36,1) both;animation-delay:calc(var(--i,0) * 60ms)}
+@keyframes rowPop{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.list-row.nope{display:none!important}
+.list-add:active,.chip:active,.size-chip:active{transform:scale(.94)}
+.list-row .color-dots i{cursor:pointer;transition:transform .25s,box-shadow .25s}
+.list-row .color-dots i:hover{transform:scale(1.35)}
+.list-row .color-dots i.sel{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--gold)}
+
+/* ============ NEWSLETTER ============ */
+.news{padding:30px 0 90px}
+.news-card{position:relative;background:linear-gradient(120deg,#141310,#1d180d 55%,#14130f);border:1px solid rgba(217,180,91,.35);border-radius:20px;padding:64px 40px;text-align:center;overflow:hidden}
+.news-card::before{content:'';position:absolute;top:-70px;right:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(217,180,91,.22),transparent 70%)}
+.news-card .kicker{display:block;margin-bottom:12px}
+.news-card h2{font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:700;margin-bottom:10px}
+.news-card p{color:var(--muted);margin-bottom:30px}
+.news-form{display:flex;gap:12px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.news-form input{flex:1;min-width:240px;background:rgba(255,255,255,.05);border:1px solid var(--line2);border-radius:6px;color:var(--txt);padding:16px 20px;font-family:inherit;font-size:.92rem}
+.news-form input::placeholder{color:#8b867b}
+.news-form input:focus{outline:none;border-color:var(--gold)}
+.news-form .btn-gold{padding:16px 30px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--bg2);border-top:1px solid var(--line);transition:background .45s ease}
+.f-main{display:grid;grid-template-columns:1.3fr .8fr 1fr 1.1fr;gap:44px;padding:74px 0 54px}
+.f-brand p{color:var(--muted);font-size:.92rem;margin:18px 0 26px;max-width:320px}
+.socials{display:flex;gap:10px}
+.social{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--muted);border:1px solid var(--line2);transition:all var(--tr)}
+.social:hover{background:var(--gold);color:#141414;border-color:var(--gold);transform:translateY(-4px)}
+.social svg{width:18px;height:18px}
+.f-col h4{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500}
+.f-col ul li{margin-bottom:12px}
+.f-col ul a{color:#c8c3b6;font-size:.92rem;transition:color var(--tr),padding var(--tr)}
+.f-col ul a:hover{color:var(--gold2);padding-left:6px}
+.f-contact li{display:flex;gap:14px;align-items:flex-start;color:#c8c3b6;font-size:.92rem;margin-bottom:16px}
+.f-contact svg{width:17px;height:17px;color:var(--gold);flex:none;margin-top:4px}
+.f-map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line2);height:230px;position:relative}
+.f-map iframe{width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+.f-map .map-tag{position:absolute;bottom:12px;left:12px;background:rgba(8,8,10,.8);backdrop-filter:blur(6px);border:1px solid var(--line2);border-radius:8px;padding:8px 14px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2)}
+.f-bottom{border-top:1px solid var(--line);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#8b867b;font-size:.8rem}
+.f-bottom .gold{color:var(--gold)}
+
+/* ============ WHATSAPP FAB & TOAST ============ */
+.wa-fab{position:fixed;right:22px;bottom:22px;z-index:920;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(100deg,#c9a44b,#f0d491 55%,#c9a44b);color:#141104;box-shadow:0 10px 30px rgba(217,180,91,.4);transition:transform var(--tr),box-shadow var(--tr)}
+.wa-fab:hover{transform:scale(1.08) translateY(-3px);box-shadow:0 14px 40px rgba(217,180,91,.6)}
+.wa-fab svg{width:26px;height:26px}
+.wa-fab::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(217,180,91,.55);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{transform:scale(.9);opacity:.9}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+.wa-hint{position:fixed;right:86px;bottom:30px;z-index:920;background:var(--card);border:1px solid rgba(217,180,91,.4);color:var(--txt);border-radius:12px;padding:11px 17px;font-size:.8rem;box-shadow:0 14px 40px rgba(0,0,0,.5);opacity:0;transform:translateX(10px);transition:all .4s;pointer-events:none}
+.wa-hint.show{opacity:1;transform:none}
+.wa-hint b{color:var(--gold2);font-weight:500}
+#toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(24px);z-index:960;background:var(--card);border:1px solid rgba(217,180,91,.55);color:var(--txt);padding:14px 26px;border-radius:99px;font-size:.86rem;letter-spacing:.04em;box-shadow:0 18px 50px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:all .35s;display:flex;gap:10px;align-items:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+
+/* ============ PRODUCT QUICK-VIEW ============ */
+.qv-overlay{position:fixed;inset:0;z-index:940;background:rgba(5,5,7,.74);backdrop-filter:blur(7px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .28s}
+.qv-overlay.open{opacity:1;pointer-events:auto}
+.qv{position:relative;width:min(880px,96%);max-height:88vh;background:var(--card);border:1px solid rgba(217,180,91,.4);border-radius:18px;display:grid;grid-template-columns:1.05fr 1fr;overflow:hidden;transform:translateY(22px) scale(.97);transition:transform .32s cubic-bezier(.22,.61,.36,1);box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 60px rgba(217,180,91,.07)}
+.qv-overlay.open .qv{transform:none}
+.qv-img{position:relative;min-height:460px;background:#e9e7e2}
+.qv-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.qv-badge{position:absolute;top:16px;left:16px;background:var(--gold);color:#141401;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:99px}
+.qv-body{padding:36px 34px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:16px}
+.qv-cat{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.qv-body h3{font-family:var(--serif);font-size:1.9rem;font-weight:700;line-height:1.15}
+.qv-price{display:flex;align-items:baseline;gap:12px}
+.qv-price .nx{font-family:var(--serif);font-weight:700;font-size:1.75rem;color:var(--gold2)}
+.qv-price .ox{font-size:.95rem;color:var(--muted);text-decoration:line-through}
+.qv-desc{color:var(--muted);font-size:.92rem;border-block:1px solid var(--line);padding:13px 0}
+.qv-opt{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.qv-lab{font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);min-width:62px}
+.size-chip{font-size:.74rem;padding:8px 14px;border:1px solid var(--line2);border-radius:6px;color:var(--txt);transition:all var(--tr)}
+.size-chip:hover{border-color:var(--gold);color:var(--gold2)}
+.size-chip.on{background:var(--gold);border-color:var(--gold);color:#141414;font-weight:500}
+.swatch{width:25px;height:25px;border-radius:50%;border:none;outline:1px solid var(--line2);cursor:pointer;transition:transform .2s,outline-color var(--tr)}
+.swatch:hover{transform:scale(1.14)}
+.swatch.on{outline:2px solid var(--gold);transform:scale(1.14);outline-offset:1px}
+
+/* ============ PANIER (drawer latéral) ============ */
+[hidden]{display:none!important}
+.cart-ov{position:fixed;inset:0;z-index:950;background:rgba(5,5,7,.74);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .4s}
+.cart-ov.open{opacity:1;pointer-events:auto}
+.cart-panel{position:absolute;top:0;right:0;height:100%;width:min(500px,96vw);background:var(--card);border-left:1px solid rgba(217,180,91,.28);box-shadow:-40px 0 120px rgba(0,0,0,.6);display:flex;flex-direction:column;transform:translateX(70px);transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.cart-ov.open .cart-panel{transform:none}
+.cart-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border:1px solid var(--line2);border-radius:10px;background:var(--card);color:var(--txt);display:grid;place-items:center;cursor:pointer;transition:border-color var(--tr),color var(--tr),transform var(--tr)}
+.cart-close:hover{border-color:var(--gold);color:var(--gold2);transform:rotate(90deg)}
+.cart-close svg{width:19px;height:19px}
+.cart-head{display:flex;align-items:flex-end;justify-content:space-between;padding:26px 78px 20px 26px;border-bottom:1px solid var(--line)}
+.cart-head h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--txt)}
+.cart-sub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cart-items{flex:1;overflow-y:auto;padding:4px 26px}
+.cart-item{display:grid;grid-template-columns:74px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);animation:ciIn .5s cubic-bezier(.22,.61,.36,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+.cart-item:last-child{border-bottom:none}
+@keyframes ciIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+.ci-thumb{width:74px;height:88px;border-radius:10px;overflow:hidden;background:#16161a}
+.ci-thumb img{width:100%;height:100%;object-fit:cover}
+.ci-main h4{font-size:.95rem;color:var(--txt);font-weight:400}
+.ci-cat{font-size:.7rem;color:var(--muted);margin-top:3px}
+.ci-opts{display:flex;align-items:center;gap:7px;margin-top:8px}
+.ci-opts .o{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.ci-dot{width:13px;height:13px;border-radius:50%;outline:1px solid var(--line2);outline-offset:1px;flex:none}
+.ci-foot{display:flex;align-items:center;justify-content:space-between;margin-top:11px}
+.ci-foot .qty button{width:30px;height:34px;font-size:1rem}
+.ci-foot .qty span{width:28px;text-align:center}
+.ci-price{font-family:var(--serif);font-weight:700;color:var(--gold2);font-size:.98rem;white-space:nowrap}
+.ci-del{border:none;background:none;color:#7d7a72;cursor:pointer;padding:6px;align-self:start;transition:color var(--tr),transform var(--tr)}
+.ci-del:hover{color:#ff7a7a;transform:scale(1.12)}
+.ci-del svg{width:19px;height:19px}
+.cart-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--muted);padding:30px}
+.cart-empty svg{width:52px;height:52px;stroke:var(--gold);opacity:.8}
+.cart-empty p{font-size:.9rem}
+.cart-foot{padding:18px 26px 24px;border-top:1px solid var(--line)}
+.cart-line{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px}
+.cart-line span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cart-line b{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold2)}
+.cart-ship{font-size:.72rem;color:var(--muted);margin-bottom:15px}
+.cart-actions{display:grid;gap:10px}
+.cart-actions .btn-gold{justify-content:center}
+.cart-clear{background:none;border:1px dashed var(--line2);border-radius:6px;color:var(--muted);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;padding:13px;cursor:pointer;transition:all var(--tr)}
+.cart-clear:hover{border-color:#ff7a7a;color:#ff7a7a}
+@media (max-width:520px){ .cart-panel{width:100vw;border-left:none} }
+.qv-buy{display:flex;gap:12px;margin-top:4px}
+.qty{display:flex;align-items:center;border:1px solid var(--line2);border-radius:6px;overflow:hidden;flex:none}
+.qty button{width:38px;height:46px;font-size:1.15rem;color:var(--txt);transition:background var(--tr),color var(--tr)}
+.qty button:hover{background:rgba(217,180,91,.15);color:var(--gold2)}
+.qty span{width:32px;text-align:center;font-weight:500}
+.qv-buy .btn-gold{flex:1;padding:12px 18px;font-size:.72rem;justify-content:center}
+.qv-note{font-size:.76rem;color:var(--muted);display:flex;gap:9px;align-items:center}
+.qv-note svg{width:15px;height:15px;color:var(--gold);flex:none}
+.qv-close{position:absolute;top:12px;right:12px;z-index:5;width:38px;height:38px;border-radius:50%;background:rgba(10,10,12,.55);border:1px solid var(--line2);color:#fff;display:grid;place-items:center;backdrop-filter:blur(4px);transition:all var(--tr)}
+.qv-close:hover{background:var(--gold);color:#141414;border-color:var(--gold);transform:rotate(90deg)}
+.qv-close svg{width:16px;height:16px}
+
+@media (max-width:760px){
+  .qv{grid-template-columns:1fr;max-height:92vh;overflow-y:auto;width:min(560px,96%)}
+  .qv-img{min-height:280px;max-height:320px}
+  .qv-body{padding:22px 20px 18px;overflow:visible}
+  .qv-body h3{font-size:1.5rem}
+}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .prods .grid{grid-template-columns:repeat(3,1fr)}
+  .cats .grid{grid-template-columns:repeat(3,1fr)}
+  .cat-card{height:320px}
+  .popular .grid{grid-template-columns:repeat(2,1fr)}
+  .f-main{grid-template-columns:1fr 1fr}
+  .menu{display:none}
+  .burger{display:grid}
+}
+@media (max-width:720px){
+  .topbar .wrap{font-size:.62rem;gap:8px}
+  .hero-slide.fit{background-size:cover;background-position:center 25%}
+  .services .wrap{grid-template-columns:1fr}
+  .cats .grid{grid-template-columns:repeat(2,1fr)}
+  .prods .grid{grid-template-columns:repeat(2,1fr)}
+  .prod-body{padding:12px 12px 14px}
+  .brand .name{font-size:1.35rem}
+  .brand .emblem{width:42px;height:42px}
+  .hero-ui .wrap{flex-direction:column;gap:18px;align-items:flex-start}
+  .hero-arrow{display:none}
+  .list-row{grid-template-columns:64px 1fr;gap:14px;padding:12px 14px}
+  .list-row .thumb{width:64px;height:64px}
+  .list-row .meta,.list-row .price{text-align:left}
+  .list-add{justify-self:start;padding:9px 16px}
+  .f-main{grid-template-columns:1fr;gap:30px}
+  .hero-stats{gap:22px}
+  .scroll-hint{margin-right:0}
+  .banner{padding:80px 0}
+}
+@media (max-width:480px){
+  .cats .grid{grid-template-columns:1fr}
+  .cat-card{height:260px}
+  .popular .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+/* ============ THÈME CLAIR (bascule = bouton rond dans le header) ============ */
+html.light{--bg:#f4efe5;--bg2:#ebe4d6;--card:#fbf9f2;--card2:#fffdf7;--line:rgba(28,21,10,.13);--line2:rgba(28,21,10,.25);--gold:#ad842d;--gold2:#8a6520;--goldsoft:rgba(173,132,45,.15);--txt:#1b170f;--muted:#6e6657}
+html.light .topbar{background:linear-gradient(90deg,#efe6d2,#ded0ab,#efe6d2)}
+html.light .site-header{background:rgba(247,242,232,.6)}
+html.light .site-header.scrolled{background:rgba(250,246,238,.9);box-shadow:0 10px 28px rgba(60,45,15,.1)}
+html.light .marquee{background:linear-gradient(90deg,#f6ead0,#e9dab1,#f6ead0);border-block-color:rgba(173,132,45,.45)}
+html.light .mobile-nav{background:rgba(244,239,229,.97)}
+html.light .topbar{color:#6a614f}
+
+.theme-btn{position:relative}
+.theme-btn svg{position:absolute;left:50%;top:50%;width:19px;height:19px;margin:-9.5px 0 0 -9.5px;transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .4s}
+.theme-btn .sun{transform:rotate(0) scale(1)}
+.theme-btn .moon{transform:rotate(135deg) scale(.2);opacity:0}
+html.light .theme-btn .sun{transform:rotate(135deg) scale(.2);opacity:0}
+html.light .theme-btn .moon{transform:rotate(0) scale(1);opacity:1}
+
+html.light .brand .name{background:linear-gradient(100deg,#241d10 30%,#8a6520 75%);-webkit-background-clip:text;background-clip:text}
+
+/* mode ?flat pour captures full-page déterministes */
+.flat{scroll-behavior:auto!important}
+.flat .hero{min-height:640px!important;height:640px!important}
+.flat .rv{opacity:1!important;transform:none!important}
+.flat .list-row{animation:none!important}
+.flat .hero-slide{animation:none!important;transition:none!important}
+.flat .hero-slide.show{opacity:1}
+.flat .hero-slide:nth-child(3){display:none}
+.flat .marquee .track{animation:none!important}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar" id="top">
+  <div class="wrap">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>&nbsp; LIVRAISON PARTOUT AU MAROC</span>
+    <span class="sep">|</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>&nbsp; PAIEMENT À LA LIVRAISON</span>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Ago Wear — Accueil">
+      <span class="emblem"><img src="assets/logo.jpg" alt="Logo Ago Wear"></span>
+      <span>
+        <span class="name">Ago Wear</span>
+        <span class="tag">Élégance · Maroc</span>
+      </span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a href="#top" class="active">Accueil</a>
+      <a href="#cats">Homme</a>
+      <a href="#nouveautes">Nouveautés</a>
+      <a href="#liste">Boutique</a>
+      <a href="#footer">Contact</a>
+    </nav>
+    <div class="nav-icons">
+      <button class="icon-btn" aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <button class="icon-btn" aria-label="Mon compte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></button>
+      <button class="icon-btn" aria-label="Mon panier" onclick="openCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 10V6a3 3 0 016 0v4"/></svg>
+        <span class="cart-badge" id="cartCount" hidden>0</span>
+      </button>
+      <button class="icon-btn theme-btn" aria-label="Mode clair / sombre" onclick="theme()">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.5v2.1M12 19.4v2.1M2.5 12h2.1M19.4 12h2.1M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 14.2A8.3 8.3 0 019.8 3.4a8.3 8.3 0 1010.8 10.8z"/></svg>
+      </button>
+      <button class="icon-btn burger" aria-label="Menu" onclick="mnav.classList.add('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mnav">
+  <button class="icon-btn close-x" aria-label="Fermer" onclick="mnav.classList.remove('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <a href="#top" onclick="mnav.classList.remove('open')">Accueil</a>
+  <a href="#cats" onclick="mnav.classList.remove('open')">Homme</a>
+  <a href="#nouveautes" onclick="mnav.classList.remove('open')">Nouveautés</a>
+  <a href="#liste" onclick="mnav.classList.remove('open')">Boutique</a>
+  <a href="#footer" onclick="mnav.classList.remove('open')">Contact</a>
+</div>
+
+<!-- ===== HERO (100vh) ===== -->
+<section class="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide fit show" style="background-image:url('assets/after-dark.png')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/3890028/pexels-photo-3890028.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1200&fit=crop')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&h=1200&q=80')"></div>
+  </div>
+  <div class="hero-veil"></div>
+
+  <button class="hero-arrow prev" aria-label="Slide précédente" onclick="go(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="hero-arrow next" aria-label="Slide suivante" onclick="go(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
+
+  <div class="wrap">
+    <p class="kicker rv in rv-d1">Style pour tous</p>
+    <h1><span class="w1">Ago</span><span class="w2">Wear</span></h1>
+    <p class="lead rv in rv-d2">Des vêtements modernes pour un style unique. <b>Qualité, confort et élégance au quotidien</b> — après le coucher du soleil, la ville nous appartient.</p>
+
+    <div class="hero-cta rv in rv-d3">
+      <a class="btn-gold" href="#nouveautes">Découvrir la collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+      <a class="btn-ghost" href="#liste">Voir la boutique</a>
+    </div>
+
+    <div class="hero-stats rv in rv-d4">
+      <div><b><span class="stars"><svg viewBox="0 0 120 21" fill="currentColor" aria-hidden="true"><path d="M11 2.5L13.6 8l5.9.6-4.4 4.1 1.2 5.8-5.3-3-5.3 3 1.2-5.8L2.5 8.6 8.4 8z"/><path transform="translate(22,0)" d="M11 2.5L13.6 8l5.9.6-4.4 4.1 1.2 5.8-5.3-3-5.3 3 1.2-5.8L2.5 8.6 8.4 8z"/><path transform="translate(44,0)" d="M11 2.5L13.6 8l5.9.6-4.4 4.1 1.2 5.8-5.3-3-5.3 3 1.2-5.8L2.5 8.6 8.4 8z"/><path transform="translate(66,0)" d="M11 2.5L13.6 8l5.9.6-4.4 4.1 1.2 5.8-5.3-3-5.3 3 1.2-5.8L2.5 8.6 8.4 8z"/><path transform="translate(88,0)" d="M11 2.5L13.6 8l5.9.6-4.4 4.1 1.2 5.8-5.3-3-5.3 3 1.2-5.8L2.5 8.6 8.4 8z"/></svg></span></b> 4.8/5 · avis clients</div>
+      <div><b>+12 000</b> commandes livrées</div>
+      <div><b>24<i>/48</i></b> livraison express DH</div>
+    </div>
+  </div>
+
+  <div class="hero-ui">
+    <div class="wrap">
+      <div class="hero-dots" id="heroDots" role="group" aria-label="Slides">
+        <button class="active" aria-label="Slide 1" onclick="jump(0)"></button>
+        <button aria-label="Slide 2" onclick="jump(1)"></button>
+        <button aria-label="Slide 3" onclick="jump(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <div class="mq"><span>Nouvelle collection Hiver 2026</span><span>Livraison partout au Maroc</span><span>Paiement à la livraison</span><span>Retours gratuits sous 15 jours</span><span>Gold Edition dispo</span></div>
+    <div class="mq"><span>Nouvelle collection Hiver 2026</span><span>Livraison partout au Maroc</span><span>Paiement à la livraison</span><span>Retours gratuits sous 15 jours</span><span>Gold Edition dispo</span></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services">
+  <div class="wrap">
+    <div class="service rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h14v11H1z"/><path d="M15 10h4l4 4v3h-8"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg></span>
+      <div><h3>Livraison au Maroc</h3><p>Rapide et sécurisée, de Casa à Dakhla.</p></div></div>
+    <div class="service rv rv-d1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 6v12"/></svg></span>
+      <div><h3>Paiement à la livraison</h3><p>Simple et flexible, tu payes en recevant.</p></div></div>
+    <div class="service rv rv-d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div><h3>Qualité garantie</h3><p>Des vêtements sélectionnés à la main.</p></div></div>
+    <div class="service rv rv-d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 13a8 8 0 0116 0"/><rect x="2" y="13" width="4" height="7" rx="2"/><rect x="18" y="13" width="4" height="7" rx="2"/><path d="M20 20a4 4 0 01-4 3h-2"/></svg></span>
+      <div><h3>Service client</h3><p>À votre écoute 7j/7 sur WhatsApp.</p></div></div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="cats" id="cats">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><p class="kicker">Nos rayons</p><h2>Catégories</h2></div>
+      <a class="link-more" href="#liste">Tout voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+    </div>
+    <div class="grid">
+      <a class="cat-card rv" href="#liste"><img loading="lazy" src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&h=1100&q=80" alt="Sweats">
+        <div class="cat-body"><h3>Sweats</h3><span class="voir">Voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></span></div></a>
+      <a class="cat-card rv rv-d1" href="#liste"><img loading="lazy" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&h=1100&q=80" alt="T-shirts">
+        <div class="cat-body"><h3>T-shirts</h3><span class="voir">Voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></span></div></a>
+      <a class="cat-card rv rv-d2" href="#liste"><img loading="lazy" src="https://images.pexels.com/photos/14437344/pexels-photo-14437344.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop" alt="Pantalons">
+        <div class="cat-body"><h3>Pantalons</h3><span class="voir">Voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></span></div></a>
+      <a class="cat-card rv rv-d3" href="#liste"><img loading="lazy" src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=900&h=1100&q=80" alt="Vestes">
+        <div class="cat-body"><h3>Vestes</h3><span class="voir">Voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></span></div></a>
+      <a class="cat-card rv rv-d4" href="#liste"><img loading="lazy" src="https://images.pexels.com/photos/17037281/pexels-photo-17037281.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop" alt="Ensembles">
+        <div class="cat-body"><h3>Ensembles</h3><span class="voir">Voir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOUVEAUTÉS ===== -->
+<section class="prods" id="nouveautes">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><p class="kicker">Fraîchement arrivé</p><h2>Nouveautés<span class="dash"></span></h2></div>
+      <a class="link-more" href="#liste">Voir tout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+    </div>
+    <div class="grid">
+      <!-- 1 -->
+      <article class="prod-card rv">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/22745628/pexels-photo-22745628.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Polo Premium — homme en polo blanc et lunettes">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Polo Premium')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Polo Premium</h3><span class="color-dots"><i style="background:#fff"></i><i style="background:#111"></i><i style="background:#8a8a8a"></i></span></div>
+          <div class="prod-price"><span class="nx">249 DH</span></div>
+          <button class="prod-add" onclick="cart('Polo Premium')">Ajouter au panier</button>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="prod-card rv rv-d1">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/28701960/pexels-photo-28701960/free-photo-of-young-man-in-black-hoodie-against-gray-background.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Sweat Oversize — mannequin en hoodie noir">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Sweat Oversize')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Sweat Oversize</h3><span class="color-dots"><i style="background:#111"></i><i style="background:#8a8a8a"></i></span></div>
+          <div class="prod-price"><span class="nx">299 DH</span></div>
+          <button class="prod-add" onclick="cart('Sweat Oversize')">Ajouter au panier</button>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="prod-card rv rv-d2">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/35043249/pexels-photo-35043249/free-photo-of-fashionable-streetwear-with-black-cargo-pants-and-chain.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Pantalon Cargo noir streetwear avec chaîne">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Pantalon Cargo')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Pantalon Cargo</h3><span class="color-dots"><i style="background:#111"></i><i style="background:#8a8a8a"></i></span></div>
+          <div class="prod-price"><span class="nx">349 DH</span></div>
+          <button class="prod-add" onclick="cart('Pantalon Cargo')">Ajouter au panier</button>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="prod-card rv rv-d3">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/31456029/pexels-photo-31456029/free-photo-of-black-and-white-portrait-of-man-in-puffer-jacket.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Veste Doudoune — portrait noir et blanc d'un homme en doudoune">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Veste Doudoune')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Veste Doudoune</h3><span class="color-dots"><i style="background:#111"></i><i style="background:#e8e6e0"></i><i style="background:#8a8a8a"></i></span></div>
+          <div class="prod-price"><span class="ox">599 DH</span><span class="nx">499 DH</span></div>
+          <button class="prod-add" onclick="cart('Veste Doudoune')">Ajouter au panier</button>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="prod-card rv rv-d4">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/6976782/pexels-photo-6976782.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Ensemble Sweat — tenue grise complète">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Ensemble Sweat')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Ensemble Sweat</h3><span class="color-dots"><i style="background:#fff"></i><i style="background:#111"></i><i style="background:#8a8a8a"></i></span></div>
+          <div class="prod-price"><span class="nx">399 DH</span></div>
+          <button class="prod-add" onclick="cart('Ensemble Sweat')">Ajouter au panier</button>
+        </div>
+      </article>
+      <!-- 6 -->
+      <article class="prod-card rv rv-d5">
+        <div class="prod-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Pull Tricoté — maille marine et blanche">
+          <span class="flag">Nouveau</span>
+          <button class="heart" aria-label="Ajouter aux favoris" onclick="wish(this,'Pull Tricoté')"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.7 1.1 5.5 3.2C13.8 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-title-row"><h3>Pull Tricoté</h3><span class="color-dots"><i style="background:#fff"></i><i style="background:#111"></i><i style="background:#111"></i></span></div>
+          <div class="prod-price"><span class="nx">299 DH</span></div>
+          <button class="prod-add" onclick="cart('Pull Tricoté')">Ajouter au panier</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOST POPULAR ===== -->
+<section class="popular" id="popular">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><p class="kicker">Les préférés de nos clients</p><h2>Les plus populaires<span class="dash"></span></h2></div>
+      <a class="link-more" href="#liste">Voir tout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+    </div>
+    <div class="grid">
+      <article class="pop-card rv">
+        <div class="pop-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/32836908/pexels-photo-32836908.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" alt="Blouson aviateur noir — portrait">
+          <span class="rank">01</span>
+          <span class="pop-badge">Top vente</span>
+        </div>
+        <div class="pop-info">
+          <h3>Blouson Aviateur Noir</h3><p class="cat">Vestes · Vente</p>
+          <div class="pop-price"><span class="ox">699 DH</span><span class="nx">549 DH</span></div>
+          <button class="pop-add" onclick="cart('Blouson Aviateur Noir')">Ajouter au panier</button>
+        </div>
+      </article>
+      <article class="pop-card rv rv-d1">
+        <div class="pop-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" alt="T-shirt noir sur cintre avec ombre solaire">
+          <span class="rank">02</span>
+          <span class="pop-badge">Top vente</span>
+        </div>
+        <div class="pop-info">
+          <h3>T-shirt Essential Noir</h3><p class="cat">T-Shirts · Vente</p>
+          <div class="pop-price"><span class="nx">199 DH</span></div>
+          <button class="pop-add" onclick="cart('T-shirt Essential Noir')">Ajouter au panier</button>
+        </div>
+      </article>
+      <article class="pop-card rv rv-d2">
+        <div class="pop-media">
+          <img loading="lazy" src="https://images.pexels.com/photos/39915457/pexels-photo-39915457.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" alt="Polo noir signature — homme assis en studio">
+          <span class="rank">03</span>
+          <span class="pop-badge">Top vente</span>
+        </div>
+        <div class="pop-info">
+          <h3>Polo Signature Noir</h3><p class="cat">Polos · Vente</p>
+          <div class="pop-price"><span class="nx">279 DH</span></div>
+          <button class="pop-add" onclick="cart('Polo Signature Noir')">Ajouter au panier</button>
+        </div>
+      </article>
+      <article class="pop-card rv rv-d3">
+        <div class="pop-media">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&h=1000&q=80" alt="Veste biker en cuir noir">
+          <span class="rank">04</span>
+          <span class="pop-badge">Top vente</span>
+        </div>
+        <div class="pop-info">
+          <h3>Veste Biker Cuir</h3><p class="cat">Vestes · Vente</p>
+          <div class="pop-price"><span class="ox">849 DH</span><span class="nx">749 DH</span></div>
+          <button class="pop-add" onclick="cart('Veste Biker Cuir')">Ajouter au panier</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOOKBOOK BANNER ===== -->
+<section class="banner" id="banner">
+  <div class="bg"></div>
+  <div class="wrap">
+    <p class="kicker rv">Lookbook Hiver 2026</p>
+    <h2 class="rv rv-d1">L'élégance <i>après la nuit</i></h2>
+    <p class="rv rv-d2">Une collection pensée pour les soirées de Casa : coupes nettes, matières nobles, finitions dorées.</p>
+    <a class="btn-gold rv rv-d3" href="#liste">Explorer le lookbook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- ===== LISTE COMPLÈTE ===== -->
+<section class="list-sec" id="liste">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><p class="kicker">Le vestiaire complet</p><h2>Tous nos vêtements<span class="dash"></span></h2></div>
+      <span class="sub">10 pièces · Stock limité</span>
+    </div>
+    <div class="list-tools rv">
+      <button class="chip on" data-f="Tout">Tout</button><button class="chip" data-f="T-Shirts">T-Shirts</button><button class="chip" data-f="Packs">Packs</button><button class="chip" data-f="Pantalons">Pantalons</button><button class="chip" data-f="Vestes">Vestes</button><button class="chip" data-f="Chemises">Chemises</button>
+    </div>
+    <div class="list-rows rv">
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=200&h=200&q=75" alt="T-shirt Basique Noir sur cintre"></div>
+        <div><h4>T-shirt Basique Noir</h4><p class="cat">T-Shirts · Coton bio 240g</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#111"></i><i style="background:#fff"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">149 DH</span>
+        <button class="list-add" onclick="cart('T-shirt Basique Noir')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=200&h=200&q=75" alt="T-shirt V-Neck blanc sur cintre"></div>
+        <div><h4>T-shirt V-Neck Blanc</h4><p class="cat">T-Shirts · Coupe droite</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#fff"></i><i style="background:#8a8a8a"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i></div>
+        <span class="price">129 DH</span>
+        <button class="list-add" onclick="cart('T-shirt V-Neck Blanc')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=200&h=200&q=75" alt="Jean Slim Destroy déchiré"></div>
+        <div><h4>Jean Slim Destroy</h4><p class="cat">Pantalons · Denim stretch</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#3d5799"></i><i style="background:#111"></i></span></div>
+        <div class="sizes"><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">399 DH</span>
+        <button class="list-add" onclick="cart('Jean Slim Destroy')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="Jean Droit Marine plié"></div>
+        <div><h4>Jean Droit Marine</h4><p class="cat">Pantalons · Coupe régulière</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#1b2440"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">349 DH</span>
+        <button class="list-add" onclick="cart('Jean Droit Marine')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=200&h=200&q=75" alt="Bombers Cuir Camel porté"></div>
+        <div><h4>Bombers Cuir Camel</h4><p class="cat">Vestes · Style rétro</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#8a5a2b"></i><i style="background:#111"></i></span></div>
+        <div class="sizes"><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">649 DH</span>
+        <button class="list-add" onclick="cart('Bombers Cuir Camel')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=200&h=200&q=75" alt="Bombers Rose Pêche sur cintre"></div>
+        <div><h4>Bombers Rose Pêche</h4><p class="cat">Vestes · Suédine premium</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#d99a7c"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i></div>
+        <span class="price">549 DH</span>
+        <button class="list-add" onclick="cart('Bombers Rose Pêche')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.pexels.com/photos/20640274/pexels-photo-20640274/free-photo-of-portrait-of-man-wearing-black-jacket.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="Parka Hiver Noir portée dans la neige"></div>
+        <div><h4>Parka Hiver Noir</h4><p class="cat">Vestes · Doublure chaude</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#111"></i></span></div>
+        <div class="sizes"><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">599 DH</span>
+        <button class="list-add" onclick="cart('Parka Hiver Noir')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.pexels.com/photos/13915356/pexels-photo-13915356.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="Chemise Lin Sable — col fermé"></div>
+        <div><h4>Chemise Lin Sable</h4><p class="cat">Chemises · Lin respirant</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#d9d2c2"></i><i style="background:#fff"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">279 DH</span>
+        <button class="list-add" onclick="cart('Chemise Lin Sable')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.pexels.com/photos/26063373/pexels-photo-26063373.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="T-shirt Oversize Sable avec sacoche"></div>
+        <div><h4>T-shirt Oversize Sable</h4><p class="cat">T-Shirts · Coupe large</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#cfc6b3"></i><i style="background:#111"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">189 DH</span>
+        <button class="list-add" onclick="cart('T-shirt Oversize Sable')">Ajouter</button>
+      </div>
+      <div class="list-row">
+        <div class="thumb"><img loading="lazy" src="https://images.pexels.com/photos/9775889/pexels-photo-9775889.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop" alt="Pack de 3 t-shirts blancs en studio"></div>
+        <div><h4>Pack 3 Tees Blanc</h4><p class="cat">Packs · Édition limitée</p></div>
+        <div class="meta"><span class="color-dots"><i style="background:#fff"></i></span></div>
+        <div class="sizes"><i>S</i><i>M</i><i>L</i><i>XL</i></div>
+        <span class="price">449 DH</span>
+        <button class="list-add" onclick="cart('Pack 3 Tees Blanc')">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="news" id="news">
+  <div class="wrap">
+    <div class="news-card rv">
+      <span class="kicker">Le club Ago Wear</span>
+      <h2>-10% sur ta première commande</h2>
+      <p>Reçois nos drops exclusifs, précommandes et codes promo — avant tout le monde.</p>
+      <form class="news-form" onsubmit="event.preventDefault();toast('Merci ! Ton code sera envoyé par email.');this.reset();">
+        <input type="email" required placeholder="Email ... " aria-label="Email">
+        <button class="btn-gold" type="submit">Je rejoins le club</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="f-main">
+      <div class="f-brand rv">
+        <a class="brand" href="#top">
+          <span class="emblem"><img src="assets/logo.jpg" alt="Logo Ago Wear"></span>
+          <span><span class="name">Ago Wear</span><span class="tag">Élégance · Maroc</span></span>
+        </a>
+        <p>Des vêtements modernes pour un style unique. Qualité, confort et élégance au quotidien — partout au Maroc.</p>
+        <div class="socials">
+          <a class="social" href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="social" href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+          <a class="social" href="#" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 1.9 1.5 3.4 3.5 3.7v3.1c-1.4-.1-2.7-.6-3.8-1.4v6.4c0 3.4-2.8 6.2-6.2 6.2S3.8 18.2 3.8 14.8 6.6 8.6 10 8.6c.4 0 .7 0 1 .1v3.3c-.3-.1-.7-.2-1-.2-1.7 0-3 1.4-3 3s1.3 3 3 3 3-1.4 3-3V3h3.5z"/></svg></a>
+          <a class="social" href="#" aria-label="X (Twitter)" title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 7.3 10h-5.6l-4.4-6-5 6H2.8l7.3-8.6L3 3h5.7l4.1 5.6L17.5 3zm-1.1 16h1.7L7.7 4.8H5.9L16.4 19z"/></svg></a>
+          <a class="social" href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.3-.4-4.8c-.2-.8-.9-1.5-1.7-1.7C18.4 5 12 5 12 5s-6.4 0-7.9.5c-.8.2-1.5.9-1.7 1.7C2 8.7 2 12 2 12s0 3.3.4 4.8c.2.8.9 1.5 1.7 1.7 1.5.5 7.9.5 7.9.5s6.4 0 7.9-.5c-.8-.2 1.5-.9 1.7-1.7.4-1.5.4-4.8.4-4.8zM10 9l5.2 3L10 15V9z"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col rv rv-d1">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#top">Accueil</a></li>
+          <li><a href="#nouveautes">Nouveautés</a></li>
+          <li><a href="#popular">Populaires</a></li>
+          <li><a href="#liste">Boutique</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col rv rv-d2">
+        <h4>Contact</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.3-7-11a7 7 0 0114 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Bd Zerktouni, Maarif<br>Casablanca, Maroc</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7l.5 3a2 2 0 01-.6 1.9l-1.3 1.2a16 16 0 007.6 7.6l1.2-1.3a2 2 0 011.9-.6l3 .5A2 2 0 0122 16.9z"/></svg><span>+212 6 58 00 00 00</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg><span>contact@agowear.ma</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Lun — Dim : 9h30 → 22h</span></li>
+        </ul>
+      </div>
+      <div class="f-col rv rv-d3">
+        <h4>Nous trouver</h4>
+        <div class="f-map">
+          <iframe title="Carte — Ago Wear Casablanca" loading="lazy" src="https://www.google.com/maps?q=Bd%20Zerktouni%20Casablanca&z=13&output=embed"></iframe>
+          <span class="map-tag"> Showroom Casablanca</span>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> <b class="gold">Ago Wear</b> — Tous droits réservés.</span>
+      <span>Livraison 24/48h · Maroc · Paiement à la livraison <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;vertical-align:-2px;color:var(--gold)"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg></span>
+      <span>Fait avec <span class="gold">passion</span> au Maroc</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FAB ===== -->
+<a class="wa-fab" href="https://wa.me/212658000000?text=Salam%20Ago%20Wear%20%F0%9F%91%8B%20j'ai%20une%20question" target="_blank" rel="noopener" aria-label="Chat WhatsApp" onmouseenter="hint(true)" onmouseleave="hint(false)">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 13.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5-4.4-5.2-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5s.8 2 .9 2.2c.1.2.1.4 0 .6-.3.6-.7 1-.5 1.3.9 1.5 1.9 2.3 3.4 3 .3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.2 1c.3.1.5.2.6.4.1.1.1.6-.1 1.3z"/></svg>
+</a>
+<div class="wa-hint" id="waHint"><b>Ahlan !</b> Ose 3lina f WhatsApp 7j/7.</div>
+
+<!-- ===== PRODUCT QUICK-VIEW ===== -->
+<div class="qv-overlay" id="qv" role="dialog" aria-modal="true" aria-label="Aperçu produit">
+  <div class="qv">
+    <button class="qv-close" onclick="closeQV()" aria-label="Fermer l'aperçu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div class="qv-img">
+      <img id="qvImg" src="" alt="">
+      <span class="qv-badge" id="qvBadge" hidden>Nouveau</span>
+    </div>
+    <div class="qv-body">
+      <span class="qv-cat" id="qvCat"></span>
+      <h3 id="qvName"></h3>
+      <div class="qv-price"><span class="nx" id="qvPrice"></span><span class="ox" id="qvOld" hidden></span></div>
+      <p class="qv-desc" id="qvDesc"></p>
+      <div class="qv-opt"><span class="qv-lab">Couleur</span><div style="display:flex;gap:9px" id="qvColors"></div></div>
+      <div class="qv-opt"><span class="qv-lab">Taille</span><div style="display:flex;gap:8px;flex-wrap:wrap" id="qvSizes"></div></div>
+      <div class="qv-buy">
+        <div class="qty">
+          <button aria-label="Moins" onclick="qvQty(-1)">−</button>
+          <span id="qvQtyN">1</span>
+          <button aria-label="Plus" onclick="qvQty(1)">+</button>
+        </div>
+        <button class="btn-gold" onclick="qvAdd()">Ajouter au panier</button>
+      </div>
+      <p class="qv-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6h14v11H1z"/><path d="M15 10h4l4 4v3h-8"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg> Livraison 24/48h partout au Maroc — paiement à la livraison.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PANIER (drawer) ===== -->
+<div class="cart-ov" id="cartOv" role="dialog" aria-modal="true" aria-label="Votre panier">
+  <aside class="cart-panel">
+    <button class="cart-close" onclick="closeCart()" aria-label="Fermer le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div class="cart-head"><h3>Votre panier</h3><span class="cart-sub" id="cartSub">Aucun article</span></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 10V6a3 3 0 016 0v4"/></svg>
+      <p>Votre panier est vide.</p>
+      <a class="btn-gold" href="#liste" onclick="closeCart()">Découvrir la collection</a>
+    </div>
+    <div class="cart-foot" id="cartFoot" hidden>
+      <div class="cart-line"><span>Sous-total</span><b id="cartTotal">0 DH</b></div>
+      <p class="cart-ship">Livraison 24/48h partout au Maroc — paiement à la livraison, confirmation sur WhatsApp.</p>
+      <div class="cart-actions">
+        <a class="btn-gold" id="cartOrder" href="#" target="_blank" rel="noopener">Commander sur WhatsApp<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15m0 0l-6-6m6 6l-6 6"/></svg></a>
+        <button class="cart-clear" onclick="clearCart()">Vider le panier</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div id="toast" role="status"><span class="dot"></span><span id="toastTxt">…</span></div>
+
+<script>
+/* ---- scroll progress + header (events + rAF fallback pour les webviews qui ne déclenchent pas 'scroll') ---- */
+const prog = document.getElementById('progress');
+const hdr = document.querySelector('.site-header');
+function syncScrollUI(){
+  const h = document.documentElement;
+  prog.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + '%';
+  hdr.classList.toggle('scrolled', h.scrollTop > 30);
+}
+addEventListener('scroll', () => { syncScrollUI(); spyUpdate(); }, {passive:true});
+(function(){
+  const pollScroll = () => {
+    const y = document.documentElement.scrollTop;
+    if (pollScroll.last !== y){ pollScroll.last = y; syncScrollUI(); spyUpdate(); }
+    requestAnimationFrame(pollScroll);
+  };
+  requestAnimationFrame(pollScroll);
+})();
+
+/* ---- scroll-spy : la ligne dorée du menu suit la section visible ---- */
+const spySecs = [['cats','cats'],['nouveautes','nouveautes'],['popular','nouveautes'],['banner','liste'],['liste','liste'],['news','footer'],['footer','footer']]
+  .map(([s, h]) => [document.getElementById(s), document.querySelector('.menu a[href="#' + h + '"]')]).filter(p => p[0] && p[1]);
+const spyAcc = document.querySelector('.menu a[href="#top"]');
+function spyUpdate(){
+  const y = document.documentElement.scrollTop + 170;
+  let lnk = spyAcc;
+  for (const [sec, l2] of spySecs) if (sec.offsetTop <= y) lnk = l2;
+  document.querySelectorAll('.menu a').forEach(l => l.classList.toggle('active', l === lnk));
+}
+
+/* ---- hero slider ---- */
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('#heroDots button');
+let cur = 0, timer = setInterval(() => go(1), 6500);
+function go(d){ jump((cur + d + slides.length) % slides.length); }
+function jump(i){
+  clearInterval(timer); timer = setInterval(() => go(1), 6500);
+  slides[cur].classList.remove('show'); dots[cur].classList.remove('active');
+  cur = i;
+  const inc = slides[cur];
+  inc.classList.remove('zoom'); void inc.offsetWidth;
+  inc.classList.add('zoom', 'show');
+  dots[cur].classList.add('active');
+}
+
+/* ---- reveal on scroll ---- */
+if (new URLSearchParams(location.search).has('flat')) document.documentElement.classList.add('flat');
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+/* filet de sécurité : si IO absent ou gelé, on révèle tout */
+if (!('IntersectionObserver' in window)) document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+setTimeout(() => { if (document.querySelectorAll('.rv.in').length === 0) document.querySelectorAll('.rv').forEach(el => el.classList.add('in')); }, 4000);
+
+/* ---- toast ---- */
+let toastTimer;
+function toast(msg){
+  document.getElementById('toastTxt').textContent = msg;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* ---- panier réel (drawer + commande WhatsApp) ---- */
+const WA_NUM = '212658000000';
+const CART = [];
+function money(n){ return n.toLocaleString('fr-FR') + ' DH'; }
+function colorHex(name, col){
+  const P = PRODUCTS[name];
+  const c = P && P.colors ? P.colors.find(x => x.n === col) : null;
+  return c ? c.h : '#161616';
+}
+function cart(name, qty, size, color){
+  qty = Math.max(1, qty || 1);
+  const P = PRODUCTS[name] || { colors: [{ n: 'Unique', h: '#161616' }], sizes: ['Unique'], p: 0, cat: '', img: '' };
+  const col = color || (P.colors[0] ? P.colors[0].n : 'Unique');
+  const sz = size || (P.sizes[0] || 'Unique');
+  const key = name + '|' + sz + '|' + col;
+  const i = CART.findIndex(x => x.key === key);
+  if (i > -1) CART[i].qty += qty;
+  else CART.push({ key, name, cat: P.cat || '', price: P.p || 0, img: P.img || '', size: sz, color: col, qty });
+  cartRefresh(true);
+  toast(name + (qty > 1 ? ' ×' + qty : '') + ' ajouté au panier');
+}
+function cartBadge(bump){
+  const b = document.getElementById('cartCount');
+  const n = CART.reduce((s, x) => s + x.qty, 0);
+  b.textContent = n;
+  b.hidden = !n;
+  if (bump){ b.classList.add('bump'); setTimeout(() => b.classList.remove('bump'), 260); }
+}
+function cartRefresh(bump){
+  cartBadge(bump);
+  if (document.querySelector('.cart-ov.open')) renderCart();
+}
+function renderCart(){
+  const has = CART.length > 0;
+  document.getElementById('cartItems').innerHTML = CART.map((it, i) =>
+    '<div class="cart-item" style="--i:' + i + '">' +
+      '<div class="ci-thumb"><img src="' + it.img + '" alt="' + it.name + '"></div>' +
+      '<div class="ci-main">' +
+        '<h4>' + it.name + '</h4>' +
+        (it.cat ? '<p class="ci-cat">' + it.cat + '</p>' : '') +
+        '<div class="ci-opts"><i class="ci-dot" style="background:' + colorHex(it.name, it.color) + '"></i><span class="o">' + it.color + '</span><span class="o">·</span><span class="o">Taille ' + it.size + '</span></div>' +
+        '<div class="ci-foot"><div class="qty"><button aria-label="Moins" onclick="ciQty(' + i + ',-1)">&#8722;</button><span>' + it.qty + '</span><button aria-label="Plus" onclick="ciQty(' + i + ',1)">+</button></div>' +
+        '<b class="ci-price">' + money(it.price * it.qty) + '</b></div>' +
+      '</div>' +
+      '<button class="ci-del" aria-label="Retirer ' + it.name.replace(/'/g, "\\'") + '" onclick="ciDel(' + i + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2m3 0l-1 13H8L7 7"/><path d="M10 11v6M14 11v6"/></svg></button>' +
+    '</div>'
+  ).join('');
+  document.getElementById('cartItems').style.display = has ? '' : 'none';
+  document.getElementById('cartEmpty').hidden = has;
+  document.getElementById('cartFoot').hidden = !has;
+  const total = CART.reduce((s, x) => s + x.price * x.qty, 0);
+  document.getElementById('cartTotal').textContent = money(total);
+  const n = CART.reduce((s, x) => s + x.qty, 0);
+  document.getElementById('cartSub').textContent = has ? n + (n > 1 ? ' articles' : ' article') : 'Aucun article';
+  const lines = CART.map(x => '- ' + x.name + ' (' + x.color + ' / taille ' + x.size + ') x' + x.qty + ' = ' + money(x.price * x.qty));
+  const msg = 'Salam Ago Wear! Je voudrais commander :\n' + lines.join('\n') + '\nTotal : ' + money(total);
+  document.getElementById('cartOrder').href = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(msg);
+}
+function ciQty(i, d){
+  CART[i].qty = Math.min(9, Math.max(1, CART[i].qty + d));
+  renderCart();
+  cartBadge(false);
+}
+function ciDel(i){ CART.splice(i, 1); cartRefresh(true); }
+function clearCart(){ CART.length = 0; cartRefresh(true); }
+function openCart(){
+  renderCart();
+  document.getElementById('cartOv').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart(){
+  document.getElementById('cartOv').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cartOv').addEventListener('click', e => { if (e.target.id === 'cartOv') closeCart(); });
+cartBadge(false);
+
+/* ---- wishlist ---- */
+function wish(btn, name){
+  btn.classList.toggle('on');
+  toast(btn.classList.contains('on') ? name + ' ajouté aux favoris' : 'Retiré des favoris');
+}
+
+/* ---- mode clair / sombre : le bouton rond bascule et mémorise le choix ---- */
+function theme(){
+  const lt = document.documentElement.classList.toggle('light');
+  try{ localStorage.setItem('ago-theme', lt ? 'light' : 'dark'); }catch(e){}
+  toast(lt ? 'Mode clair activé' : 'Mode sombre activé');
+}
+
+/* ---- chips filter : filtrage réel + apparition en cascade ---- */
+function applyChip(f){
+  const rows = [...document.querySelectorAll('.list-row')];
+  let n = 0;
+  rows.forEach(r => {
+    const ok = f === 'Tout' || ((r.querySelector('.cat') || {}).textContent || '').includes(f);
+    r.classList.toggle('nope', !ok);
+    r.classList.remove('pop');
+    if (ok){
+      r.style.setProperty('--i', n++);
+      void r.offsetWidth;
+      r.classList.add('pop');
+    }
+  });
+}
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  if (c.classList.contains('on')) return;
+  document.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+  c.classList.add('on');
+  applyChip(c.dataset.f || c.textContent.trim());
+}));
+
+/* ---- whatsapp hint ---- */
+function hint(on){ document.getElementById('waHint').classList.toggle('show', on); }
+
+/* ---- year ---- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---- catalogue produits (quick-view) ---- */
+const IMG = (p, w, h) => 'https://images.pexels.com/photos/' + p + '/pexels-photo-' + p + '.jpeg?auto=compress&cs=tinysrgb&w=' + w + '&h=' + h + '&fit=crop';
+const UIMG = (p, w, h) => 'https://images.unsplash.com/photo-' + p + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=80';
+const SML = ['S', 'M', 'L', 'XL'];
+const PRODUCTS = {
+  'Polo Premium': { p: 249, cat: 'T-Shirts · Piqué de coton', badge: 'Nouveau', img: IMG('22745628', 1000, 1200), desc: 'Polo en piqué de coton, coupe régulière et finitions dorées. L\'essentiel chic de la maison.', colors: [{ n: 'Blanc', h: '#ffffff' }, { n: 'Noir', h: '#161616' }, { n: 'Gris', h: '#8a8a8a' }], sizes: SML },
+  'Sweat Oversize': { p: 299, cat: 'Sweats · Molleton 400g', badge: 'Nouveau', img: IMG('28701960', 1000, 1200), desc: 'Coupe oversize confortable, poche kangourou et intérieur doux. Le sweat du quotidien — en mieux.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Gris', h: '#8a8a8a' }], sizes: SML },
+  'Pantalon Cargo': { p: 349, cat: 'Pantalons · Streetwear', badge: 'Nouveau', img: IMG('35043249', 1000, 1200), desc: 'Cargo streetwear avec poches renforcées et ceinture ajustable. Esprit After Dark.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Kaki', h: '#6b6a4f' }], sizes: ['28', '30', '32', '34'] },
+  'Veste Doudoune': { p: 499, old: 599, cat: 'Vestes · Matelassée', badge: 'Nouveau', img: IMG('31456029', 1000, 1200), desc: 'Doudoune légère et respirante, chaud sans épaisseur. Ta protection pour les nuits de Casa.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Ivoire', h: '#e8e6e0' }, { n: 'Gris', h: '#8a8a8a' }], sizes: SML },
+  'Ensemble Sweat': { p: 399, cat: 'Ensembles · 2 pièces', badge: 'Nouveau', img: IMG('6976782', 1000, 1200), desc: 'Hoodie + jogging assortis, molleton premium. Silhouette relax, tenue impeccable.', colors: [{ n: 'Gris clair', h: '#c9c9c9' }, { n: 'Noir', h: '#161616' }, { n: 'Sable', h: '#cfc6b3' }], sizes: SML },
+  'Pull Tricoté': { p: 299, cat: 'Pulls · Maille torsade', badge: 'Nouveau', img: IMG('45982', 1000, 1200), desc: 'Maille torsade épaisse, col rond, laine douce sur la peau. Le vrai confort d\'hiver.', colors: [{ n: 'Navy', h: '#1b2440' }, { n: 'Écru', h: '#efe9db' }], sizes: SML },
+  'Blouson Aviateur Noir': { p: 549, old: 699, cat: 'Vestes · Best-seller', badge: 'Top vente', img: IMG('32836908', 1000, 1200), desc: 'Aviateur matelassé, coque déperlante et doublure satin. Le manteau préféré de nos clients.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Fusil', h: '#4a4a4e' }], sizes: SML },
+  'T-shirt Essential Noir': { p: 199, cat: 'T-Shirts · Jersey 220g', badge: 'Top vente', img: IMG('8532616', 1000, 1200), desc: 'Jersey épais avec col renforcé. La pièce à posséder — ou trois.', colors: [{ n: 'Noir', h: '#161616' }], sizes: SML },
+  'Polo Signature Noir': { p: 279, cat: 'Polos · Édition', badge: 'Top vente', img: IMG('39915457', 1000, 1200), desc: 'Piqué épais, poignets bord-côte signature. Discret mais jamais banal.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Blanc', h: '#ffffff' }], sizes: SML },
+  'Veste Biker Cuir': { p: 749, old: 849, cat: 'Vestes · Cuir pleine fleur', badge: 'Top vente', img: UIMG('1551028719-00167b16eac5', 1000, 1200), desc: 'Cuir pleine fleur, zips métalliques et coupe moto. Caractère, en cuir.', colors: [{ n: 'Noir', h: '#161616' }], sizes: SML },
+  'T-shirt Basique Noir': { p: 149, cat: 'T-Shirts · Coton bio 240g', img: UIMG('1618354691373-d851c5c3a990', 1000, 1200), desc: 'Coton biologique 240g au tombé net. Le basique, mieux fait.', colors: [{ n: 'Noir', h: '#161616' }, { n: 'Blanc', h: '#ffffff' }], sizes: SML },
+  'T-shirt V-Neck Blanc': { p: 129, cat: 'T-Shirts · Coupe droite', img: UIMG('1581655353564-df123a1eb820', 1000, 1200), desc: 'Col V pur coton, coupe droite intemporelle. Lumineux sur jean brut.', colors: [{ n: 'Blanc', h: '#ffffff' }, { n: 'Gris', h: '#8a8a8a' }], sizes: ['S', 'M', 'L'] },
+  'Jean Slim Destroy': { p: 399, cat: 'Pantalons · Denim stretch', img: UIMG('1541099649105-f69ad21f3246', 1000, 1200), desc: 'Denim stretch avec déchirures stratégiques. Le look d\'hiver s\'affiche fort.', colors: [{ n: 'Blueprint', h: '#3d5799' }, { n: 'Noir', h: '#161616' }], sizes: ['28', '30', '32', '34'] },
+  'Jean Droit Marine': { p: 349, cat: 'Pantalons · Coupe régulière', img: IMG('934070', 1000, 1200), desc: 'Denim épais 14oz, coupe droite marine. Robuste, honnête, éternel.', colors: [{ n: 'Marine', h: '#1b2440' }], sizes: ['28', '30', '32', '34'] },
+  'Bombers Cuir Camel': { p: 649, cat: 'Vestes · Style rétro', img: UIMG('1614252369475-531eba835eb1', 1000, 1200), desc: 'Bombers camel au grain souple, doublure chaude. Vintage bien léché.', colors: [{ n: 'Camel', h: '#8a5a2b' }, { n: 'Noir', h: '#161616' }], sizes: ['M', 'L', 'XL'] },
+  'Bombers Rose Pêche': { p: 549, cat: 'Vestes · Suédine premium', img: UIMG('1591047139829-d91aecb6caea', 1000, 1200), desc: 'Suédine pêche, bord-côte strié. La touche dorée de l\'après-solstice.', colors: [{ n: 'Pêche', h: '#d99a7c' }], sizes: ['S', 'M', 'L'] },
+  'Parka Hiver Noir': { p: 599, cat: 'Vestes · Doublure chaude', img: IMG('20640274', 1000, 1200), desc: 'Parka technique à capuche amovible, doublure isolante. Passe l\'hiver avec style.', colors: [{ n: 'Noir', h: '#161616' }], sizes: ['M', 'L', 'XL'] },
+  'Chemise Lin Sable': { p: 279, cat: 'Chemises · Lin respirant', img: IMG('13915356', 1000, 1200), desc: 'Lin respirant à col italien. L\'air de vacances, en plein milieu urbain.', colors: [{ n: 'Sable', h: '#d9d2c2' }, { n: 'Blanc', h: '#ffffff' }], sizes: SML },
+  'T-shirt Oversize Sable': { p: 189, cat: 'T-Shirts · Coupe large', img: IMG('26063373', 1000, 1200), desc: 'Épaules tombantes et coloris écrus — la pièce qui adoucit toutes les tenues.', colors: [{ n: 'Sable', h: '#cfc6b3' }, { n: 'Noir', h: '#161616' }], sizes: SML },
+  'Pack 3 Tees Blanc': { p: 449, cat: 'Packs · Édition limitée', img: IMG('9775889', 1000, 1200), desc: 'Trois tees blancs essentiels au prix du pack. Stock limité.', colors: [{ n: 'Blanc', h: '#ffffff' }], sizes: SML }
+};
+
+/* ---- quick-view ---- */
+const qvEl = document.getElementById('qv');
+let qvItem = null, qvColorSel = '', qvSizeSel = '', qvQ = 1;
+function openQV(name){
+  const p = PRODUCTS[name];
+  if (!p) return;
+  qvItem = name; qvQ = 1;
+  qvColorSel = p.colors.length ? p.colors[0].n : '';
+  qvSizeSel = p.sizes[Math.min(1, p.sizes.length - 1)];
+  document.getElementById('qvImg').src = p.img;
+  document.getElementById('qvImg').alt = name;
+  const badge = document.getElementById('qvBadge');
+  badge.hidden = !p.badge;
+  badge.textContent = p.badge || '';
+  document.getElementById('qvCat').textContent = p.cat;
+  document.getElementById('qvName').textContent = name;
+  document.getElementById('qvPrice').textContent = p.p + ' DH';
+  const old = document.getElementById('qvOld');
+  old.hidden = !p.old;
+  old.textContent = p.old ? p.old + ' DH' : '';
+  document.getElementById('qvDesc').textContent = p.desc;
+  document.getElementById('qvColors').innerHTML = p.colors.map((c, i) =>
+    '<button class="swatch' + (i === 0 ? ' on' : '') + '" title="' + c.n + '" aria-label="Couleur ' + c.n + '" style="background:' + c.h + '" onclick="qvColor(this,\'' + c.n + '\')"></button>'
+  ).join('');
+  document.getElementById('qvSizes').innerHTML = p.sizes.map((s, i) =>
+    '<button class="size-chip' + (s === qvSizeSel ? ' on' : '') + '" onclick="qvSize(this,\'' + s + '\')">' + s + '</button>'
+  ).join('');
+  document.getElementById('qvQtyN').textContent = '1';
+  qvEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  qvEl.querySelector('.qv-close').focus({ preventScroll: true });
+}
+function closeQV(){
+  qvEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function qvQty(d){
+  qvQ = Math.min(9, Math.max(1, qvQ + d));
+  document.getElementById('qvQtyN').textContent = qvQ;
+}
+function qvColor(btn, n){
+  qvColorSel = n;
+  [...btn.parentElement.querySelectorAll('.swatch')].forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+function qvSize(btn, s){
+  qvSizeSel = s;
+  [...btn.parentElement.querySelectorAll('.size-chip')].forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+function qvAdd(){
+  if (!qvItem) return;
+  cart(qvItem, qvQ, qvSizeSel, qvColorSel);
+}
+qvEl.addEventListener('click', e => { if (e.target === qvEl) closeQV(); });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape'){
+    if (document.querySelector('.cart-ov.open')) closeCart();
+    else if (document.querySelector('.qv-overlay.open')) closeQV();
+  }
+});
+
+/* ---- ouvrir quick-view depuis les cards ---- */
+document.querySelectorAll('.prod-card, .pop-card').forEach(card => {
+  card.querySelector('.prod-media, .pop-media').addEventListener('click', e => {
+    if (e.target.closest('button')) return;
+    openQV(card.querySelector('h3').textContent.trim());
+  });
+});
+document.querySelectorAll('.list-row').forEach(row => {
+  row.addEventListener('click', e => {
+    if (e.target.closest('button,.color-dots,.sizes')) return;
+    openQV(row.querySelector('h4').textContent.trim());
+  });
+  row.querySelectorAll('.color-dots i').forEach(d => d.addEventListener('click', () => {
+    row.querySelectorAll('.color-dots i').forEach(x => x.classList.remove('sel'));
+    d.classList.add('sel');
+  }));
+});
+
+/* ---- param ?qv=Nom : ouvre l'aperçu produit directement (deep-link + captures QA) ---- */
+(function(){
+  const qvn = new URLSearchParams(location.search).get('qv');
+  if (qvn && PRODUCTS[qvn]) openQV(qvn);
+})();
+
+/* ---- param ?cart=1 : ouvre le panier directement (deep-link QA / lien support) ---- */
+(function(){
+  if (new URLSearchParams(location.search).has('cart')) openCart();
+})();
+</script>
+</body>
+</html>
